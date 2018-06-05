@@ -68,8 +68,8 @@ body {
     background: -webkit-radial-gradient(rgb(115,199,63), #53992D);
     background:    -moz-radial-gradient(rgb(115,199,63), #53992D);
     background:      -o-radial-gradient(rgb(115,199,63), #53992D);
-    background:         radial-gradient(rgb(115,199,63), #53992D);
-
+    /*background:         radial-gradient(rgb(115,199,63), #53992D);*/
+    background: radial-gradient(rgb(10, 43, 174), #7ec7f5);
     -webkit-font-smoothing: antialiased;
 }
 
