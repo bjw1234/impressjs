@@ -1,0 +1,202 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=1024"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>技术实现分析</title>
+    <style type="text/css">
+        #agenda .title {
+            color: #d92626;
+            font-size: 80px;
+            text-shadow: 1px 1px 15px #222;
+            margin-bottom: 50px;
+        }
+
+        #agenda ul li {
+            list-style: inside;
+        }
+
+        .client {
+            margin-top: 80px;
+        }
+
+        .client .item {
+            position: relative;
+            display: inline-block;
+            margin: 0 30px;
+
+        }
+
+        .client .item:before {
+            position: absolute;
+            content: '';
+            height: 2px;
+            background-color: red;
+        }
+
+        .client .item1:before {
+            top: -60px;
+            left: 81px;
+            width: 150px;
+            transform: rotate(-57deg);
+        }
+
+        .client .item2:before {
+            height: 2px;
+            left: 0;
+            top: -78px;
+            width: 120px;
+            transform: rotate(90deg);
+        }
+
+        .client .item3:before {
+            left: -100px;
+            top: -53px;
+            height: 2px;
+            width: 170px;
+            transform: rotate(57deg);
+        }
+
+        .client .item span {
+            font-size: 20px;
+        }
+
+        .screen-food {
+            text-align: center;
+        }
+
+        .screen-food img {
+            width: 25%;
+            margin: 0 10px;
+            box-shadow: 10px 5px 30px #ccc;
+        }
+
+        #td li {
+            list-style: inside;
+            font-size: 20px;
+        }
+
+        #td li:before {
+            content: '';
+        }
+
+        #no {
+            margin-top: 30%;
+            transform: rotate(-25deg);
+            color: red;
+            text-shadow: 2px 2px 5px blue;
+        }
+
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+    <link href="css/introtonode.css" rel="stylesheet"/>
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+    <div id="title" class="step" data-x="-500" data-y="50">
+        <h1>技术实现<br>和思路分析</h1>
+        <h2>BaiJiaWei - @光信1501</h2>
+    </div>
+
+    <div id="agenda" class="step" data-x="1200" data-y="50">
+        <h3 class="title">开发策略</h3>
+        <ul>
+            <li>原生开发实现</li>
+            <li>内嵌webview</li>
+            <li>Progressive Web App</li>
+        </ul>
+    </div>
+
+    <div class="cube">
+        <div class="topFace step" data-x="0" data-y="-125" data-z="-1005" data-rotate-x="60" data-rotate-y="0"
+             data-rotate-z="45" data-scale="0.5">
+            <h1>原生应用和开发</h1>
+            <div style="text-align: center;">
+                <img src="./images/server.png" width="180">
+            </div>
+            <div class="client" style="text-align: center">
+                <div class="item item1">
+                    <img src="./images/ie.png"><br>
+                    <span>html、css、js</span>
+                </div>
+                <div class="item item2">
+                    <img src="./images/android.png"><br>
+                    <span>java + 安卓api</span>
+                </div>
+                <div class="item item3">
+                    <img src="./images/apple.png"><br>
+                    <span>Object-C以及Swift</span>
+                </div>
+            </div>
+        </div>
+        <div class="leftFace step" data-x="-125" data-y="90" data-z="-985" data-rotate-x="-30" data-rotate-y="-45"
+             data-rotate-z="0" data-scale="0.5">
+            <h1>内嵌webview</h1>
+            <ul class="webview">
+                <li>Andriod使用webview控件往APP里内嵌网页</li>
+                <li>在ios中有自己的浏览器组件，他就是UIWebView</li>
+            </ul>
+            <div style="font-size: 20px;text-align: center;margin-bottom: 18px">
+                <a href="https://bjw1234.github.io/sell/dist">饿了么外卖APP</a>
+            </div>
+            <div class="screen-food">
+                <img src="./images/e1.png" alt="">
+                <img src="./images/e2.png" alt="">
+                <img src="./images/e3.png" alt="">
+            </div>
+            <div style="font-size: 20px;text-align: center;margin-top: 18px">
+                <a href=" https://www.golaravel.com/"> https://www.golaravel.com/</a>
+            </div>
+        </div>
+        <div class="rightFace step" data-x="125" data-y="90" data-z="-985" data-rotate-x="-30" data-rotate-y="45"
+             data-rotate-z="0" data-scale="0.5">
+            <p id="no">什么？还要内嵌浏览器? <br><br>宝宝不要！</p>
+        </div>
+        <div class="backRightFace step" data-x="125" data-y="-35" data-z="-1200" data-rotate-x="-30" data-rotate-y="135"
+             data-rotate-z="0" data-scale="0.5">
+            <h1>Progressive Web App</h1>
+            <div class="desc" style="font-size:25px;">
+                2016年，Google提出了PWA，志在增强Web体验。可显著提高加载速度、可离线工作、可被添加至主屏、全屏执行、推送通知消息……等等这些特性可使Web应用渐进式地变成App，甚至与APP相匹敌。
+            </div>
+            <img src="./images/webo.jpg" width="30%">
+            <img src="./images/black.jpg" width="30%">
+        </div>
+        <div class="backLeftFace step" data-x="-125" data-y="-35" data-z="-1200" data-rotate-x="-30" data-rotate-y="225"
+             data-rotate-z="0" data-scale="0.5">
+            <h1>普通H5和PWA对比</h1>
+            <ul id="td">
+                <li>可靠：在没有网络的环境中也能提供基本的页面访问，而不会出现“未连接到互联网”的页面。</li>
+                <li>快速：针对网页渲染及网络数据访问有较好优化。</li>
+                <li> 融入（Engaging）：应用可以被增加到手机桌面，并且和普通应用一样有全屏、推送等特性。</li>
+            </ul>
+            <img src="./images/articlex.gif" width="100%">
+        </div>
+        <div class="bottomFace step" data-x="0" data-y="180" data-z="-1180" data-rotate-x="60" data-rotate-y="180"
+             data-rotate-z="45" data-scale="0.5">
+            <h1>总结</h1>
+            <ul>
+                <li>客户端：移动端适配和PWA技术开发APP和网站</li>
+                <li>服务器：NodeJs + MongoDB + swig</li>
+                <li>项目部署：阿里云虚拟服务器（9.9元/月）</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
